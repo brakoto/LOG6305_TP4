@@ -29,7 +29,7 @@ class LLMTestGenerator(AbstractGenerator):
         generated_ids = self.model.generate(input_ids, max_length=512)
         output_text = self.tokenizer.decode(generated_ids[0], skip_special_tokens=True)
         '''
-        input_ids = self.tokenizer.encode(prompt, return_tensors="pt")
+        input_ids = self.tokenizer.encode(prompt, return_tensors="pt").to(self.model.device)
         attention_mask = torch.ones_like(input_ids)
         pad_token_id = self.tokenizer.eos_token_id
         output = self.model.generate(input_ids, attention_mask=attention_mask, pad_token_id=pad_token_id, max_length=520, num_return_sequences=1)
