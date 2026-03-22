@@ -16,21 +16,18 @@ class PromptGenerator:
         self._few_shot_examples = few_shot_examples
         #prompt = f" I am testing a function which takes a string representing a file's name, and returns   \
     #$'Yes' if the the file's name is valid, and returns 'No' otherwise.Generate diverse tests for the function {self._func_name} \n " 
-        prompt = ""
+        prompt = "Generate unit tests for the provided input file.\n"
+        prompt += "Input\n"
+        prompt += f"{self._lines}\n"
+        
         if self._few_shot_examples:
-
+            prompt += "Below is a list of test case examples.\n"
             for example in self._few_shot_examples:
 
-                prompt += "Input\n"
-                prompt += f"{self._lines}\n"
                 prompt += "Example\n"
                 prompt += f"{example}\n"
 
         #print(f"Lines {self._lines}")   
-        prompt += "Input\n"
-        prompt += f"{self._lines}\n"
-        prompt += "Example\n"
-        prompt += f"def test_{self._func_name}():\n"
 
         final_prompt = ''.join(prompt)
         comment_regex = r'""".*?"""'
