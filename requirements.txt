@@ -1,3 +1,5 @@
 transformers
 coverage
 torch
+bitsandbytes
+accelerate

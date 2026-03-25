@@ -1,0 +1,21 @@
+def test_closest_integer(closest_integer):
+    assert closest_integer("10") == 10
+    assert closest_integer("14.5") == 15
+    assert closest_integer("-14.5") == -15
+    assert closest_integer("10.7") == 11
+    assert closest_integer("-10.7") == -11
+    assert closest_integer("10.1") == 10
+    assert closest_integer("-10.1") == -10
+    assert closest_integer("10.9") == 11
+    assert closest_integer("-10.9") == -11
+    assert closest_integer("10.499") == 10
+    assert closest_integer("-10.499") == -10
+    assert closest_integer("10.501") == 11
+    assert closest_integer("-10.501") == -11
+    assert closest_integer("0") == 0
+    assert closest_integer("-0.5") == -1
+    assert closest_integer("0.5") == 1
+    assert closest_integer("10.0") == 10
+    assert closest_integer("-10.0") == -10
+    assert closest_integer("10.5") == 11
+    assert closest_integer("-10.5") == -11
